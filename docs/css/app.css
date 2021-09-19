@@ -1,0 +1,38 @@
+[x-cloak] {
+  display: none !important;
+}
+
+.input-table {
+  border: 1px solid #000;
+  border-collapse: collapse;
+}
+
+.input-table th {
+  background-color: #969696a2;
+}
+
+.input-table tr,
+.input-table th,
+.input-table td {
+  border: 1px solid #000;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+.input-table tr input,
+.input-table th input,
+.input-table td input {
+  outline: none;
+  border: none;
+}
+
+.input-table [contenteditable]:focus {
+  outline: none;
+  -webkit-box-shadow: 0 0 0 2px #5292f7 inset;
+          box-shadow: 0 0 0 2px #5292f7 inset;
+}
+
+.input-table td.error {
+  background-color: #f8a4a4;
+}
+/*# sourceMappingURL=app.css.map */

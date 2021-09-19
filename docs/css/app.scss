@@ -1,0 +1,35 @@
+// for Alpine.js
+[x-cloak] {
+  display: none !important;
+}
+
+.input-table {
+  border: 1px solid #000;
+  border-collapse: collapse;
+
+  th {
+    background-color: #969696a2;
+  }
+
+  tr,
+  th,
+  td {
+    border: 1px solid #000;
+    border-collapse: collapse;
+    padding: 5px;
+
+    input {
+      outline: none;
+      border: none;
+    }
+  }
+
+  [contenteditable]:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #5292f7 inset; // inner border
+  }
+
+  td.error {
+    background-color: #f8a4a4;
+  }
+}

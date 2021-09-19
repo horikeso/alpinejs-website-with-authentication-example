@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>Home</title>
+    <link href="../css/reset.css" rel="stylesheet" />
+    <link href="../css/app.css" rel="stylesheet" />
+    <script defer="defer" src="../js/main.js"></script>
+  </head>
+  <body>
+    <div x-data="auth()" x-cloak x-init="initForPrivate()">
+      <div x-show="isDisplayed">
+        <template x-if="$store.auth.isAuthenticated">
+          <div>
+            <div>Home</div>
+            <div>Authenticated Home Hello, World!</div>
+            <br />
+            <div><input type="button" value="SIGN OUT" @click="signOut" /></div>
+            <br />
+            <div x-data="member()">
+              <div x-show="isDisplayed">
+                <table class="input-table">
+                  <tr>
+                    <template x-for="title in Object.keys(member)">
+                      <th x-text="title"></th>
+                    </template>
+                  </tr>
+                  <tr>
+                    <td x-text="member.id"></td>
+                    <td
+                      contenteditable="true"
+                      x-text="member.name"
+                      :class="inputError.name ? 'error' : ''"
+                      @input="inputName($event.target.innerText)"
+                    ></td>
+                    <td
+                      contenteditable="true"
+                      x-text="member.address"
+                      :class="inputError.address ? 'error' : ''"
+                      @input="inputAddress($event.target.innerText)"
+                    ></td>
+                    <td :class="inputError.age ? 'error' : ''">
+                      <input
+                        list="gender"
+                        :value="member.gender"
+                        @input="inputGender($event.target.value)"
+                      />
+                      <datalist id="gender">
+                        <option value="male"></option>
+                        <option value="female"></option>
+                      </datalist>
+                    </td>
+                    <td
+                      contenteditable="true"
+                      x-text="member.age"
+                      :class="inputError.age ? 'error' : ''"
+                      @input="inputAge($event.target.innerText)"
+                    ></td>
+
+                    <td x-text="member.authenticatedAt"></td>
+                    <td x-text="member.createdAt"></td>
+                    <td
+                      contenteditable="true"
+                      x-text="member.remarks"
+                      :class="inputError.remarks ? 'error' : ''"
+                      @input="inputRemarks($event.target.innerText)"
+                    ></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+  </body>
+</html>

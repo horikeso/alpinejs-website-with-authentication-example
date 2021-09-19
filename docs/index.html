@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>Index</title>
+    <link href="css/reset.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
+    <script defer="defer" src="js/main.js"></script>
+  </head>
+  <body>
+    <div x-data="auth()" x-cloak x-show="isDisplayed" x-init="initForSignIn()">
+      <div x-show="isDisplayed">
+        <template x-if="!$store.auth.isAuthenticated">
+          <div>
+            <div>Index</div>
+            <div>
+              <input type="text" :value="id" placeholder="ID" />
+              <input type="text" :value="password" placeholder="PASSWORD" />
+              <input type="button" value="SIGN IN" @click="signIn" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

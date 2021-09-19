@@ -1,0 +1,15 @@
+{
+  "plugins": ["@babel/syntax-dynamic-import"],
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": false,
+        "targets": {
+          // for "regeneratorRuntime is not defined"
+          "esmodules": true
+        }
+      }
+    ]
+  ]
+}
